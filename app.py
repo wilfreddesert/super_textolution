@@ -64,7 +64,7 @@ def upload_file():
             #If "LR" not in name we add it for convenience
             filename = filename[:-4] + "_LR.png" if "LR" not in filename else filename
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return redirect(url_for('show_result',n=filename))
+            return redirect(url_for('show_result',fn=filename))
     
 
     return '''
@@ -77,12 +77,10 @@ def upload_file():
     </form>
     '''
 
-@app.route('/get_result/<n>')
-def show_result(n):
+@app.route('/get_result/<fn>')
+def show_result(fn):
     cfg = TestObject()
     sample.main(cfg)
-    fn = n.split("/")[-1]
-    print(f'FILENAME{fn}')
     LR_path = os.path.join(UPLOAD_FOLDER,fn)
     BICUBIC = get_bicubic(LR_path)
     copyfile(LR_path, os.path.join("./static",fn))

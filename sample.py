@@ -11,29 +11,11 @@ from torch.autograd import Variable
 from dataset import TestDataset
 from PIL import Image
 
-
-
-
-def parse_args():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--model", type=str)
-    parser.add_argument("--ckpt_path", type=str)
-    parser.add_argument("--group", type=int, default=1)
-    parser.add_argument("--sample_dir", type=str)
-    parser.add_argument("--test_data_dir", type=str, default="dataset/Urban100")
-    parser.add_argument("--cuda", action="store_true")
-    parser.add_argument("--scale", type=int, default=4)
-    parser.add_argument("--shave", type=int, default=20)
-
-    return parser.parse_args()
-
-
 def save_image(tensor, filename):
     tensor = tensor.cpu()
     ndarr = tensor.mul(255).clamp(0, 255).byte().permute(1, 2, 0).numpy()
     im = Image.fromarray(ndarr)
     im.save(filename)
-
 
 def sample(net, device, dataset, cfg):
     lr, name = dataset[-1]
@@ -84,7 +66,3 @@ def main(cfg):
     
     print(len(dataset))
     sample(net, device, dataset, cfg)
- 
-if __name__ == "__main__":
-    cfg = parse_args()
-    main(cfg)

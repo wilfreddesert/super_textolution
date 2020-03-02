@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Super Resolution Prototype</title>
+		
+		<!-- css from w3 site for the table -->
+        <style>
+
+            #nav {
+                text-align:center;
+                font-size:20px;
+                margin-left:10px;
+                link-style:none;
+            }
+
+            #nav a {
+                padding:1.2em;
+            }
+        </style>
+    </head>
+
+    <body>
+        
+        <div>
+        <p>SR Image </p>
+        <img src="{{url_for('static', filename=SR_name)}}" />
+        </div>
+
+        <div>
+        <p>LR Image </p>
+        <img src="{{url_for('static', filename=LR_name)}}" />
+        </div>
+
+        <div>
+        <p>BICUBIC Image </p>
+        <img src="{{url_for('static', filename=BICUBIC_name)}}" />
+        </div>
+        
+        <a href = "../">One more time</a>
+    </body>
+</html>

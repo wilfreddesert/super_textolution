@@ -14,6 +14,9 @@ class TestDataset(data.Dataset):
         self.name  = dirname.split("/")[-1]
         self.scale = scale
         all_files = glob.glob(os.path.join(dirname, "*.png"))
+        all_files.extend(glob.glob(os.path.join(dirname, "*.jpg")))
+        all_files.extend(glob.glob(os.path.join(dirname, "*.jpeg")))
+        print(all_files)
         # Removed if "LR" in name part
         self.lr = [name for name in all_files]
         self.lr.sort()

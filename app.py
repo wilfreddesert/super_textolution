@@ -62,7 +62,9 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             #If "LR" not in name we add it for convenience
-            filename = filename[:-4] + "_LR.png" if "LR" not in filename else filename
+            filename_without_ext, extension = os.path.splitext(filename)[0], os.path.splitext(filename)[1]
+            #print(filename_without_ext, extension)
+            filename = filename_without_ext + "_LR" + extension if "LR" not in filename else filename
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             return redirect(url_for('show_result',fn=filename))
     

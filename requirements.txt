@@ -3,7 +3,7 @@ https://download.pytorch.org/whl/cpu/torch-1.4.0%2Bcpu-cp36-cp36m-linux_x86_64.w
 https://download.pytorch.org/whl/cpu/torchvision-0.5.0%2Bcpu-cp36-cp36m-linux_x86_64.whl
 h5py==2.9.0
 scipy==1.1.0
-opencv_contrib_python==4.0.0.21
+opencv_contrib_python==4.2.0.32
 Werkzeug==0.14.1
 scikit_image==0.14.2
 Flask==1.0.2

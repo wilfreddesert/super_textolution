@@ -1,4 +1,4 @@
-numpy==1.14.6
+numpy==1.22.0
 https://download.pytorch.org/whl/cpu/torch-1.4.0%2Bcpu-cp36-cp36m-linux_x86_64.whl
 https://download.pytorch.org/whl/cpu/torchvision-0.5.0%2Bcpu-cp36-cp36m-linux_x86_64.whl
 h5py==2.9.0
